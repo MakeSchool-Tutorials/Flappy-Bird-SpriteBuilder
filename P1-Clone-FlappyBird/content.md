@@ -1,7 +1,7 @@
 ---
 title: Learn to build Flappy Fly!
 slug: build-flappy-fly
----
+---            
 
 **Learn to build Flappy Fly!**
 
@@ -9,7 +9,7 @@ slug: build-flappy-fly
 
 * * *
 
-This is the one and only tutorial that will teach you how to implement a native Flappy Bird clone for iOS. We will be using SpriteBuilder and Cocos2d 3.0 and walk you through all the steps starting with a blank project.
+This is the one and only tutorial that will teach you how to implement a native Flappy Bird clone for iOS.  We will be using SpriteBuilder and Cocos2d 3.0 and walk you through all the steps starting with a blank project.
 
 If you aren't familiar with SpriteBuilder you should consider starting with our [beginner tutorial](https://www.makegameswith.us/tutorials/getting-started-with-spritebuilder/) as we won't repeat all basic concepts of SpriteBuilder.
 
@@ -23,7 +23,7 @@ The solution to this tutorial is available on [GitHub](https://github.com/MakeGa
 
 [![](https://static.makegameswith.us/gamernews_images/TVZ2mTmQpl/labtocat.png)](https://github.com/MakeGamesWithUs/FlappyFly.spritebuilder)
 
-Let's get started with *Flappy Fly*.
+Let's get started with *Flappy Fly.*
 
 # Getting Started
 
@@ -49,15 +49,15 @@ This will make the fly appear at the same position during the complete game. If 
 
 # Setup the Gameplay scene
 
-Before we can start we need to change to project settings. _Flappy Fly _is a portrait mode game and the assets for the game are provided in 2x (iPhone retina resolution). Open the project settings and adjust these two settings:
+Before we can start we need to change to project settings. *Flappy Fly* is a portrait mode game and the assets for the game are provided in 2x (iPhone retina resolution). Open the project settings and adjust these two settings:
 
 ![](https://static.makegameswith.us/gamernews_images/YiBhlFpagq/Screen Shot 2014-02-10 at 15.28.09.png)
 
-Now publish your project and run it in Xcode! Your simulator should be displayed in portrait mode.
+	                                         Now publish your project and run it in Xcode! Your simulator should be displayed in portrait mode.
 
 ## Adding Art
 
-Time to add some art in SpriteBuilder. First, remove the label and the background image from the _MainScene_, leaving you with a blank screen.
+Time to add some art in SpriteBuilder. First, remove the label and the background image from the *MainScene*, leaving you with a blank screen.
 
 ## Background Image
 
@@ -67,7 +67,7 @@ Now add the background image:
 
 Set the reference corner to the top left (that means the position of the background will be defined starting in the top left corner). Set position to (0,0) and anchor point to (0,1). Now the background will stick at the top left corner, independent of the device size. This is important because we want to support 3.5-inch and 4 inch iPhones. 
 
-You can preview how your app will look on both of these devices using this setting:
+	                                         You can preview how your app will look on both of these devices using this setting:
 
 ![](https://static.makegameswith.us/gamernews_images/Sj3ZOu0HpA/Screen Shot 2014-02-10 at 15.36.21.png)
 
@@ -89,13 +89,13 @@ We want the clouds to be positioned from the top left corner, so set the referen
 
 # Creating the fly
 
-Now we're going to create new _CCB-File _for the fly and add an animation for the hero in our game.
+Now we're going to create new *CCB-File* for the fly and add an animation for the hero in our game.
 
-Create a new Sprite _CCB-File_:
+	                                       Create a new Sprite *CCB-File*:
 
 ![](https://static.makegameswith.us/gamernews_images/0MT1ImitnS/Screen Shot 2014-02-10 at 15.55.40.png)
 
-Set the sprite frame for the fly to _fly1.png_ from the art pack:
+Set the sprite frame for the fly to *fly1.png* from the art pack:
 
 ![](https://static.makegameswith.us/gamernews_images/NpZDZYxUAH/Screen Shot 2014-02-10 at 15.59.02.png)
 
@@ -105,11 +105,11 @@ If you have problems following the steps, you should take a look at the [chapter
 
 ![](https://static.makegameswith.us/gamernews_images/B75LIHoJdv/Timeline.gif)
 
-Now we are going to insert six _Sprite Frame Keyframes _in which we are going to switch between the two images _fly1.png_ and _fly2.png. _This is how you insert a Sprite Frame Keyframe:
+Now we are going to insert six *Sprite Frame Keyframes* in which we are going to switch between the two images *fly1.png* and *fly2.png.* This is how you insert a Sprite Frame Keyframe:
 
 ![](https://static.makegameswith.us/gamernews_images/itKlcBE6Y5/Screen Shot 2014-02-10 at 16.07.04.png)
 
-Note that the _CCSprite_ needs to be selected in the timeline in order to add a Keyframe. Add 6 of these Sprite Frames and use the _Sprite Frame _property of the _CCSprite_ to switch between the two different fly images. Also chain this timeline to itself, so that the animation is repeated infinitely. Once you are done, the result should look similar to this one:
+Note that the *CCSprite* needs to be selected in the timeline in order to add a Keyframe. Add 6 of these Sprite Frames and use the *Sprite Frame* property of the *CCSprite* to switch between the two different fly images. Also chain this timeline to itself, so that the animation is repeated infinitely. Once you are done, the result should look similar to this one:
 
 ![](https://static.makegameswith.us/gamernews_images/70O82VzZyd/FlyAnimation.gif)
 
@@ -117,23 +117,23 @@ Once again, if you had problems with one of these steps please check the beginne
 
 # Let the fly fall
 
-Because our game uses physics we need to use a _CCPhysicsNode_. Open _MainScene.ccb _and drag a _CCPhysicsNode_ below the root node, set the size of the CCPhysicsNode to be a 100% of the parents size:
+Because our game uses physics we need to use a *CCPhysicsNode*. Open *MainScene.ccb* and drag a *CCPhysicsNode* below the root node, set the size of the CCPhysicsNode to be a 100% of the parents size:
 
 ![](https://static.makegameswith.us/gamernews_images/OrLEzWGkN7/Screen Shot 2014-02-10 at 16.17.48.png)
 
-Now make the ground a static physics body and add it to the _CCPhysicsNode_ (remember? Every Node that has physics enabled needs to be below a _CCPhysicsNode_!):
+Now make the ground a static physics body and add it to the *CCPhysicsNode* (remember? Every Node that has physics enabled needs to be below a *CCPhysicsNode*!):
 
 ![](https://static.makegameswith.us/gamernews_images/P74n6vPJZF/Screen Shot 2014-02-10 at 16.21.57.png)
 
-Now drag the _Hero.ccb_ file to this scene to add the hero to the gameplay. Make the hero a child of the CCPhysicsNode and make the hero a dynamic physics object:
+Now drag the *Hero.ccb* file to this scene to add the hero to the gameplay. Make the hero a child of the CCPhysicsNode and make the hero a dynamic physics object:
 
 ![](https://static.makegameswith.us/gamernews_images/kFK3nBC5pq/Screen Shot 2014-02-10 at 16.25.52.png)
 
-Now, before we run the game and see the fly drop lets add the bush above the ground to complete the visual appeal of _Flappy Fly_:
+Now, before we run the game and see the fly drop lets add the bush above the ground to complete the visual appeal of *Flappy Fly*:
 
 ![](https://static.makegameswith.us/gamernews_images/nALIgK9ypZ/Screen Shot 2014-02-10 at 16.31.43.png)
 
-Set the reference corner for the bush to bottom left, just as you did for the ground. Also make sure that all the decorative elements are placed above the _CCPhysicsNode_ in the timeline. This will ensure that the hero will be drawn in front of the background images.
+Set the reference corner for the bush to bottom left, just as you did for the ground. Also make sure that all the decorative elements are placed above the *CCPhysicsNode* in the timeline. This will ensure that the hero will be drawn in front of the background images.
 
 You are now again ready to publish your project and run the App from Xcode. You should see the fly slowly sailing down and coming to a rest on the ground:
 
@@ -149,21 +149,19 @@ We are going to begin by moving the fly with a constant speed. First setup a cod
 
 Now open Xcode, we are going to write some Objective-C code!
 
-Replace the entire content of _MainScene.m_ (except for the copyright header at the top) with this content:
+Replace the entire content of *MainScene.m* (except for the copyright header at the top) with this content:
 
-		static const CGFloat scrollSpeed = 80.f;
+    #import "MainScene.h"
+    static const CGFloat scrollSpeed = 80.f;
+    @implementation MainScene {
+        CCSprite *_hero;
+    }
+    - (void)update:(CCTime)delta {
+        _hero.position = ccp(_hero.position.x + delta * scrollSpeed, _hero.position.y);
+    }
+    @end
 
-		@implementation MainScene {
-			CCSprite *_hero;
-		}
-
-		- (void)update:(CCTime)delta {
-			_hero.position = ccp(_hero.position.x + delta * scrollSpeed, _hero.position.y);
-		}
-
-		@end
-
-We are creating a private instance variable for our code connection __hero_. We also define a constant for the scroll speed because we will reference it from various points in code later. Finally we implement the update method (which is called every frame by Cocos2d) and use it to modify the x position of the fly. By multiplying the scroll speed with _delta_ we ensure that the fly always moves at the same speed , independent of the frame rate. _Disclaimer: setting the position manually in an update method is not the best use of a physics engine but this tutorial focuses on cloning flappy birds and not on physics best practices (stay tuned for such a tutorial in future)._
+We are creating a private instance variable for our code connection *_hero*. We also define a constant for the scroll speed because we will reference it from various points in code later. Finally we implement the update method (which is called every frame by Cocos2d) and use it to modify the x position of the fly. By multiplying the scroll speed with *delta* we ensure that the fly always moves at the same speed , independent of the frame rate. *Disclaimer: setting the position manually in an update method is not the best use of a physics engine but this tutorial focuses on cloning flappy birds and not on physics best practices (stay tuned for such a tutorial in future).*
 
 Once you added this code you can run your App. You should see the fly falling down and slowly grinding over the floor until it leaves the right edge of the screen.
 
@@ -171,27 +169,27 @@ You're right; as a next step we need to set up a camera to follow the fly.
 
 ## Setting up a "camera"
 
-Cocos2d does not have the concept of a camera (though _CCActionFollow_ comes close to it). This means we will implement the camera mechanism on our own. We do this by moving the complete content of the game to the left (to the player this looks the same as if the camera is moving to the right - in the end all movement is relative).
+Cocos2d does not have the concept of a camera (though *CCActionFollow* comes close to it). This means we will implement the camera mechanism on our own. We do this by moving the complete content of the game to the left (to the player this looks the same as if the camera is moving to the right - in the end all movement is relative).
 
-Just as in Flappy Bird the background images will be all static. The only things scrolling will be the obstacles and the ground. This means to implement the camera, we need to move the _physicsNode_ to the left (obstacles, ground and hero are children of the physics node).
+Just as in Flappy Bird the background images will be all static. The only things scrolling will be the obstacles and the ground. This means to implement the camera, we need to move the *physicsNode* to the left (obstacles, ground and hero are children of the physics node).
 
 To scroll the physics node in code we need to setup a new code connection:
 
 ![](https://static.makegameswith.us/gamernews_images/WeN7ErSVDT/Screen Shot 2014-02-10 at 17.03.04.png)
 
-Now switch to Xcode and create a new private instance variable called __physicsNode _for this code connection. Your private variables now should look like this:
+Now switch to Xcode and create a new private instance variable called *_physicsNode* for this code connection. Your private variables now should look like this:
 
-		@implementation MainScene {
-			CCSprite *_hero;
-			CCPhysicsNode *_physicsNode;
-		}
+    @implementation MainScene {
+        CCSprite *_hero;
+        CCPhysicsNode *_physicsNode;
+    }
 
 Now we are going to add a second step to our update method that will move the physics node:
 
-		- (void)update:(CCTime)delta {
-			_hero.position = ccp(_hero.position.x + delta * scrollSpeed, _hero.position.y);
-			_physicsNode.position = ccp(_physicsNode.position.x - (scrollSpeed *delta), _physicsNode.position.y);
-		}
+    - (void)update:(CCTime)delta {
+        _hero.position = ccp(_hero.position.x + delta * scrollSpeed, _hero.position.y);
+        _physicsNode.position = ccp(_physicsNode.position.x - (scrollSpeed *delta), _physicsNode.position.y);
+    }
 
 The update method should now contain two lines; one to move the fly and the other to scroll the game.
 
@@ -207,51 +205,47 @@ The first step will be adding a second piece of ground in SpriteBuilder:
 
 ![](https://static.makegameswith.us/gamernews_images/qyDSCLgMiu/Screen Shot 2014-02-10 at 17.14.51.png)
 
-Drag the second piece of ground below the _CCPhysicsNode_. Set the position to (348,12). _348_ is the width of the first piece of ground _12_ is the y-Position of the first piece of ground. **Also set the anchor point to (0 , 0.5), the same as the first piece**. This way the two elements will line up nicely. If you want to be able to see how they line up you can select _Document -&gt; Stage Border -&gt; None _from the SpriteBuilder menu which will make all Nodes visible, even if they are outside the screen bounds.
+Drag the second piece of ground below the *CCPhysicsNode*. Set the position to (348,12). *348* is the width of the first piece of ground *12* is the y-Position of the first piece of ground. **Also set the anchor point to (0 , 0.5), the same as the first piece**. This way the two elements will line up nicely. If you want to be able to see how they line up you can select *Document -&gt; Stage Border -&gt; None* from the SpriteBuilder menu which will make all Nodes visible, even if they are outside the screen bounds.
 
 Now there are a couple of important steps to follow:
 
 *   Make the second piece of ground you just added a static physics body
-*   Setup a code connection for the first piece of ground and name it __ground1_
-*   Setup a code connection for the second piece of ground and name it __ground2_
+*   Setup a code connection for the first piece of ground and name it *_ground1*
+*   Setup a code connection for the second piece of ground and name it *_ground2*
 
 If you followed all the steps closely you are now ready to open Xcode.
 
-In code we will have to add code connections for both ground pieces. For easier use we will also add an array that contains both of these ground pieces. In the update method we will perform a check for each ground piece to see if it has moved off the screen. The content of _MainScene_.m should look like this:
+In code we will have to add code connections for both ground pieces. For easier use we will also add an array that contains both of these ground pieces. In the update method we will perform a check for each ground piece to see if it has moved off the screen. The content of *MainScene*.m should look like this:
 
-		#import "MainScene.h"
+    #import "MainScene.h"
+    static const CGFloat scrollSpeed = 80.f;
+    @implementation MainScene {
+        CCSprite *_hero;
+        CCPhysicsNode *_physicsNode;
+        CCNode *_ground1;
+        CCNode *_ground2;
+        NSArray *_grounds;
+    }
+    - (void)didLoadFromCCB {
+        _grounds = @[_ground1, _ground2];
+    }
+    - (void)update:(CCTime)delta {
+        _hero.position = ccp(_hero.position.x + delta * scrollSpeed, _hero.position.y);
+        _physicsNode.position = ccp(_physicsNode.position.x - (scrollSpeed *delta), _physicsNode.position.y);
+        // loop the ground
+        for (CCNode *ground in _grounds) {
+            // get the world position of the ground
+            CGPoint groundWorldPosition = [_physicsNode convertToWorldSpace:ground.position];
+            // get the screen position of the ground
+            CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
+            // if the left corner is one complete width off the screen, move it to the right
+            if (groundScreenPosition.x <= (-1 * ground.contentSize.width)) {
+                ground.position = ccp(ground.position.x + 2 * ground.contentSize.width, ground.position.y);
+            }
+        }
+    }
 
-		static const CGFloat scrollSpeed = 80.f;
-
-		@implementation MainScene {
-			CCSprite *_hero;
-			CCPhysicsNode *_physicsNode;
-			CCNode *_ground1;
-			CCNode *_ground2;
-			NSArray *_grounds;
-		}
-
-		- (void)didLoadFromCCB {
-			_grounds = @[_ground1, _ground2];
-		}
-
-		- (void)update:(CCTime)delta {
-			_hero.position = ccp(_hero.position.x + delta * scrollSpeed, _hero.position.y);
-			_physicsNode.position = ccp(_physicsNode.position.x - (scrollSpeed *delta), _physicsNode.position.y);
-			// loop the ground
-			for (CCNode *ground in _grounds) {
-				// get the world position of the ground
-				CGPoint groundWorldPosition = [_physicsNode convertToWorldSpace:ground.position];
-				// get the screen position of the ground
-				CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
-				// if the left corner is one complete width off the screen, move it to the right
-				if (groundScreenPosition.x &lt;= (-1 * ground.contentSize.width)) {
-					ground.position = ccp(ground.position.x + 2 * ground.contentSize.width, ground.position.y);
-				}
-			}
-		}
-
-In _didLoadFromCCB _we create an array to be able to loop through the ground pieces instead of duplicating the code. The exciting part happens in the _update_ method. We retrieve the current screen position for each ground piece. Since the ground pieces aren't children of the _MainScene _(self) we need to first get the world position of the ground pieces and then use the _convertToNodeSpace _method to get the position in the _MainScene_ (self). Once we have the position we check if any piece is off the screen. If that is the case we move it to the right of the second ground piece, this creates a looping effect.
+In *didLoadFromCCB* we create an array to be able to loop through the ground pieces instead of duplicating the code. The exciting part happens in the *update* method. We retrieve the current screen position for each ground piece. Since the ground pieces aren't children of the *MainScene* (self) we need to first get the world position of the ground pieces and then use the *convertToNodeSpace* method to get the position in the *MainScene* (self). Once we have the position we check if any piece is off the screen. If that is the case we move it to the right of the second ground piece, this creates a looping effect.
 
 If you run your game now, the ground will scroll endlessly!
 
@@ -263,15 +257,15 @@ First, let's increase the gravity to -700 to make the fly drop faster. You can d
 
 ![](https://static.makegameswith.us/gamernews_images/sJqBDNqwJn/Screen Shot 2014-02-10 at 17.50.06.png)
 
-Now we are going to add touch handling in code. Open_ MainScene.m _and add this line to _didLoadFromCCB _to enable touches in our game:
+Now we are going to add touch handling in code. Open *MainScene.m* and add this line to *didLoadFromCCB* to enable touches in our game:
 
-		self.userInteractionEnabled = YES;
+    self.userInteractionEnabled = TRUE;
 
 Then add a method to handle beginning touches:
 
-		- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-			[_hero.physicsBody applyImpulse:ccp(0, 400.f)];
-		}
+    - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+        [_hero.physicsBody applyImpulse:ccp(0, 400.f)];
+    }
 
 Whenever a touch occurs we create an impulse that lifts the fly. For now it is the easiest to use the physics values we provide. Once you completed the tutorial you can spend time tweaking the values.
 
@@ -279,15 +273,15 @@ Now it's time to run the game again and see how the fly can be controlled by tou
 
 ## Limiting the speed
 
-As you maybe have realized while testing the implementation: when you touch the screen often in a short time period the impulses add up and the fly shoots out of the top edge of the screen. As in most physics games we will have to add some tweaking variables. For this game we want to limit the vertical upward velocity. We can do this by extending the _update_ method.
+As you maybe have realized while testing the implementation: when you touch the screen often in a short time period the impulses add up and the fly shoots out of the top edge of the screen. As in most physics games we will have to add some tweaking variables. For this game we want to limit the vertical upward velocity. We can do this by extending the *update* method.
 
 Add these lines to limit the velocity:
 
-		// clamp velocity
-		float yVelocity = clampf(_hero.physicsBody.velocity.y, -1 * MAXFLOAT, 200.f);
-		_hero.physicsBody.velocity = ccp(0, yVelocity);
+    // clamp velocity
+    float yVelocity = clampf(_hero.physicsBody.velocity.y, -1 * MAXFLOAT, 200.f);
+    _hero.physicsBody.velocity = ccp(0, yVelocity);
 
-Clamping means changing a given value so that it stays within a specified range. This way we are limiting the upwards speed to 200. By using negative _MAXFLOAT _as bottom border, we are not limiting the falling speed. We don't need to set the x velocity because we are setting the position manually.
+Clamping means changing a given value so that it stays within a specified range. This way we are limiting the upwards speed to 200. By using negative *MAXFLOAT* as bottom border, we are not limiting the falling speed. We don't need to set the x velocity because we are setting the position manually.
 
 ## Make the fly rotate
 
@@ -301,31 +295,31 @@ There are a couple of things we will need to do to achieve this:
 
 First step, let's add a private member variable to keep track of the time since the last touch (add this one to all the other private member variables):
 
-		NSTimeInterval _sinceTouch;
+    NSTimeInterval _sinceTouch;
 
-Next, extend the touch method to trigger the upward rotation on a touch. We will do this by applying an angular impulse. We also need to reset the __sinceTouch_ value every time a touch occurs:
+Next, extend the touch method to trigger the upward rotation on a touch. We will do this by applying an angular impulse. We also need to reset the *_sinceTouch* value every time a touch occurs:
 
-		- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-			[_hero.physicsBody applyImpulse:ccp(0, 400.f)];
-			[_hero.physicsBody applyAngularImpulse:10000.f];
-			_sinceTouch = 0.f;
-		}
+    - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+        [_hero.physicsBody applyImpulse:ccp(0, 400.f)];
+        [_hero.physicsBody applyAngularImpulse:10000.f];
+        _sinceTouch = 0.f;
+    }
 
-This is how your _touchBegan_ method should look now. Applying a high angular impulse will lead to the bird turning upwards fast.
+This is how your *touchBegan* method should look now. Applying a high angular impulse will lead to the bird turning upwards fast.
 
 Finally we need to limit the rotation of the fly and start a downward rotation if no touch occurred in a while. We will do both in the update method. Add these lines to your update method:
 
-		_sinceTouch += delta;
-		_hero.rotation = clampf(_hero.rotation, -30.f, 90.f);
-		if (_hero.physicsBody.allowsRotation) {
-			float angularVelocity = clampf(_hero.physicsBody.angularVelocity, -2.f, 1.f);
-			_hero.physicsBody.angularVelocity = angularVelocity;
-		}
-		if ((_sinceTouch &gt; 0.5f)) {
-			[_hero.physicsBody applyAngularImpulse:-40000.f*delta];
-		}
+        _sinceTouch += delta;
+        _hero.rotation = clampf(_hero.rotation, -30.f, 90.f);
+        if (_hero.physicsBody.allowsRotation) {
+            float angularVelocity = clampf(_hero.physicsBody.angularVelocity, -2.f, 1.f);
+            _hero.physicsBody.angularVelocity = angularVelocity;
+        }
+        if ((_sinceTouch > 0.5f)) {
+            [_hero.physicsBody applyAngularImpulse:-40000.f*delta];
+        }
 
-There are a couple things going on here. First, we increase the __sinceTouch_ value to capture how much time has passed since the last touch. In the next line we limit the rotation of the fly.
+There are a couple things going on here. First, we increase the *_sinceTouch* value to capture how much time has passed since the last touch. In the next line we limit the rotation of the fly.
 
 Next, we check if the hero allows rotation (later we will disable rotation upon death). If rotation is allowed we clamp the angular velocity to make the rotation appear less hectic, then we apply that new velocity.
 
@@ -341,13 +335,13 @@ By now our game looks pretty decent! There is just one very important thing miss
 
 Now we are getting to a very interesting part. We will be adding obstacles and implement a mechanism to randomly create more obstacles as we fly along the level.
 
-Go back to SpriteBuilder and create a new _CCB-File _for the obstacles:
+Go back to SpriteBuilder and create a new *CCB-File* for the obstacles:
 
 ![](https://static.makegameswith.us/gamernews_images/dvnDNIpW3N/Screen Shot 2014-02-10 at 18.39.07.png)
 
-We will construct our obstacles with two pipes, one at the top and one at the bottom and _CCNode_ in between which we will use as goal (the player will get a point when colliding with this goal).
+We will construct our obstacles with two pipes, one at the top and one at the bottom and *CCNode* in between which we will use as goal (the player will get a point when colliding with this goal).
 
-Add _pipe_top.png_ and _pipe_bottom.png_ to your new _Obstacle.ccb. _Also add a CCNode between these two pipes. There are a lot of ways to set the positioning for this obstacle up, but it is easier if you follow my exact instructions.
+Add *pipe_top.png* and *pipe_bottom.png* to your new *Obstacle.ccb.* Also add a CCNode between these two pipes. There are a lot of ways to set the positioning for this obstacle up, but it is easier if you follow my exact instructions.
 
 The root node:
 
@@ -375,50 +369,50 @@ Most importantly it has to be stretched over both pipes.
 
 It is important to get this positioning right, that will ensure that the obstacles look the same on an 3.5-inch and a 4-inch phone.
 
-You can test if you setup the obstacle correct by adding one to the _MainScene.ccb_. The result should be similar to this one:
+You can test if you setup the obstacle correct by adding one to the *MainScene.ccb*. The result should be similar to this one:
 
 ![](https://static.makegameswith.us/gamernews_images/B7Q9bSw2XS/Screen Shot 2014-02-10 at 19.07.20.png)
 
-Once you have successfully tested that the obstacle looks correct, remove it from _MainScene.ccb, _as we will be adding obstacles from code.
+Once you have successfully tested that the obstacle looks correct, remove it from *MainScene.ccb,* as we will be adding obstacles from code.
 
 ## Generate obstacles in code
 
-Now we will put the obstacles we just created in our game. Open Xcode and add a member variable to _MainScene.m:_
+Now we will put the obstacles we just created in our game. Open Xcode and add a member variable to *MainScene.m:*
 
-		NSMutableArray *_obstacles;
+    NSMutableArray *_obstacles;
 
 We will use this array to keep track of the obstacles we create.
 
 Add to constants (below the scrolling speed constant we already have):
 
-		static const CGFloat firstObstaclePosition = 280.f;
-		static const CGFloat distanceBetweenObstacles = 160.f;
+    static const CGFloat firstObstaclePosition = 280.f;
+    static const CGFloat distanceBetweenObstacles = 160.f;
 
 These constants describe the x position of the first obstacle and the distance between two obstacles.
 
 Now add the method that takes care of spawning obstacles:
 
-		- (void)spawnNewObstacle {
-			CCNode *previousObstacle = [_obstacles lastObject];
-			CGFloat previousObstacleXPosition = previousObstacle.position.x;
-			if (!previousObstacle) {
-				// this is the first obstacle
-				previousObstacleXPosition = firstObstaclePosition;
-			}
-			CCNode *obstacle = [CCBReader load:@"Obstacle"];
-			obstacle.position = ccp(previousObstacleXPosition + distanceBetweenObstacles, 0);
-			[_physicsNode addChild:obstacle];
-			[_obstacles addObject:obstacle];
-		}
+    - (void)spawnNewObstacle {
+        CCNode *previousObstacle = [_obstacles lastObject];
+        CGFloat previousObstacleXPosition = previousObstacle.position.x;
+        if (!previousObstacle) {
+            // this is the first obstacle
+            previousObstacleXPosition = firstObstaclePosition;
+        }
+        CCNode *obstacle = [CCBReader load:@"Obstacle"];
+        obstacle.position = ccp(previousObstacleXPosition + distanceBetweenObstacles, 0);
+        [_physicsNode addChild:obstacle];
+        [_obstacles addObject:obstacle];
+    }
 
-This method creates a new obstacle by loading it from the _CCB-File _and places it within the defined distance of the last existing obstacle. If now other obstacle exists it will position the obstacle at the _firstObstaclePosition_ we just defined.
+This method creates a new obstacle by loading it from the *CCB-File* and places it within the defined distance of the last existing obstacle. If now other obstacle exists it will position the obstacle at the *firstObstaclePosition* we just defined.
 
-Now all we have to do is use this code from the _didLoadFromCCB _method, which is called as soon as our scene is initialized. Add this to _didLoadFromCCB_:
+Now all we have to do is use this code from the *didLoadFromCCB* method, which is called as soon as our scene is initialized. Add this to *didLoadFromCCB*:
 
-		_obstacles = [NSMutableArray array];
-		[self spawnNewObstacle];
-		[self spawnNewObstacle];
-		[self spawnNewObstacle];
+    _obstacles = [NSMutableArray array];
+    [self spawnNewObstacle];
+    [self spawnNewObstacle];
+    [self spawnNewObstacle];
 
 We first initialize the array for the obstacles and then spawn three of them. You are now once again ready to play your game!
 
@@ -428,129 +422,128 @@ This will be our next task spawning and endless amount of obstacles!
 
 ## Spawning new obstacles when old ones leave the screen
 
-We will now implement a mechanism that checks which obstacles moved off the screen and spawns new obstacles for these ones. Add these lines to your _update_ method:
+We will now implement a mechanism that checks which obstacles moved off the screen and spawns new obstacles for these ones. Add these lines to your *update* method:
 
-		NSMutableArray *offScreenObstacles = nil;
-		for (CCNode *obstacle in _obstacles) {
-			CGPoint obstacleWorldPosition = [_physicsNode convertToWorldSpace:obstacle.position];
-			CGPoint obstacleScreenPosition = [self convertToNodeSpace:obstacleWorldPosition];
-			if (obstacleScreenPosition.x &lt; -obstacle.contentSize.width) {
-				if (!offScreenObstacles) {
-					offScreenObstacles = [NSMutableArray array];
-				}
-			[offScreenObstacles addObject:obstacle];
-			}
-		}
-		for (CCNode *obstacleToRemove in offScreenObstacles) {
-			[obstacleToRemove removeFromParent];
-			[_obstacles removeObject:obstacleToRemove];
-			// for each removed obstacle, add a new one
-			[self spawnNewObstacle];
-		}
+        NSMutableArray *offScreenObstacles = nil;
+        for (CCNode *obstacle in _obstacles) {
+            CGPoint obstacleWorldPosition = [_physicsNode convertToWorldSpace:obstacle.position];
+            CGPoint obstacleScreenPosition = [self convertToNodeSpace:obstacleWorldPosition];
+            if (obstacleScreenPosition.x < -obstacle.contentSize.width) {
+                if (!offScreenObstacles) {
+                    offScreenObstacles = [NSMutableArray array];
+                }
+                [offScreenObstacles addObject:obstacle];
+            }
+        }
+        for (CCNode *obstacleToRemove in offScreenObstacles) {
+            [obstacleToRemove removeFromParent];
+            [_obstacles removeObject:obstacleToRemove];
+            // for each removed obstacle, add a new one
+            [self spawnNewObstacle];
+        }
 
 The basics of this code will remind you of the ground looping we implemented previously. We check which obstacles are off the screen - we add these obstacles to a separate array (because we cannot remove objects from an array we are currently looping through). Then we iterate over the array of obstacles that need to be removed. We remove them from the scene, from the array of obstacles and spawn a new obstacle.
 
-Now run your game. You should see an endless amount of scrolling obstacles! You are getting close to completing _Flappy Fly_!
+Now run your game. You should see an endless amount of scrolling obstacles! You are getting close to completing *Flappy Fly*!
 
 ## Generate random obstacles
 
-The next challenge we are going to tackle is generating random obstacles. This means we will be varying the position of the gap between the two pipes. The first step is setting up a custom class for the obstacle. Call the class _Obstacle _and be sure to have the root node selected when you set it:
+The next challenge we are going to tackle is generating random obstacles. This means we will be varying the position of the gap between the two pipes. The first step is setting up a custom class for the obstacle. Call the class *Obstacle* and be sure to have the root node selected when you set it:
 
 ![](https://static.makegameswith.us/gamernews_images/EKKV0s7OHW/Screen Shot 2014-02-10 at 19.37.24.png)
 
-Also set up a code connection for the top and the bottom pipe. You have done this many times before so we won't repeat. Call the connection __topPipe_ and __bottomPipe_.
+Also set up a code connection for the top and the bottom pipe. You have done this many times before so we won't repeat. Call the connection *_topPipe* and *_bottomPipe*.
 
-Once you have setup everything create a new class _Obstacle_ in XCode. It should be a subclass of _CCNode_:
+Once you have setup everything create a new class *Obstacle* in XCode. It should be a subclass of *CCNode*:
 
 ![](https://static.makegameswith.us/gamernews_images/KinWiYqukS/Screen Shot 2014-02-10 at 19.40.10.png)
 
-I will give you the complete content of _Obstacle_.m at once. Add it to your file, read it and then we will discuss it:
+I will give you the complete content of *Obstacle*.m at once. Add it to your file, read it and then we will discuss it:
 
-		#import "Obstacle.h"
-
-		@implementation Obstacle {
-			CCNode *_topPipe;
-			CCNode *_bottomPipe;
-		}
-		#define ARC4RANDOM_MAX 0x100000000
-		// visibility on a 3,5-inch iPhone ends a 88 points and we want some meat
-		static const CGFloat minimumYPositionTopPipe = 128.f;
-		// visibility ends at 480 and we want some meat
-		static const CGFloat maximumYPositionBottomPipe = 440.f;
-		// distance between top and bottom pipe
-		static const CGFloat pipeDistance = 142.f;
-		// calculate the end of the range of top pipe
-		static const CGFloat maximumYPositionTopPipe = maximumYPositionBottomPipe - pipeDistance;
-		- (void)setupRandomPosition {
-			// value between 0.f and 1.f
-			CGFloat random = ((double)arc4random() / ARC4RANDOM_MAX);
-			CGFloat range = maximumYPositionTopPipe - minimumYPositionTopPipe;
-			_topPipe.position = ccp(_topPipe.position.x, minimumYPositionTopPipe + (random * range));
-			_bottomPipe.position = ccp(_bottomPipe.position.x, _topPipe.position.y + pipeDistance);
-		}
-		@end
+    #import "Obstacle.h"
+    @implementation Obstacle {
+        CCNode *_topPipe;
+        CCNode *_bottomPipe;
+    }
+    #define ARC4RANDOM_MAX      0x100000000
+    // visibility on a 3,5-inch iPhone ends a 88 points and we want some meat
+    static const CGFloat minimumYPositionTopPipe = 128.f;
+    // visibility ends at 480 and we want some meat
+    static const CGFloat maximumYPositionBottomPipe = 440.f;
+    // distance between top and bottom pipe
+    static const CGFloat pipeDistance = 142.f;
+    // calculate the end of the range of top pipe
+    static const CGFloat maximumYPositionTopPipe = maximumYPositionBottomPipe - pipeDistance;
+    - (void)setupRandomPosition {
+        // value between 0.f and 1.f
+        CGFloat random = ((double)arc4random() / ARC4RANDOM_MAX);
+        CGFloat range = maximumYPositionTopPipe - minimumYPositionTopPipe;
+        _topPipe.position = ccp(_topPipe.position.x, minimumYPositionTopPipe + (random * range));
+        _bottomPipe.position = ccp(_bottomPipe.position.x, _topPipe.position.y + pipeDistance);
+    }
+    @end
 
 First, let's discuss what happens on a high level. At the top of the file we define a couple of constants. These constants describe the minimum and maximum positions for the top and bottom pipes. I have chosen these values in way that every pipe at the top reaches at least 30 points into the screen for a 3.5-inch iPhone. This means on an iPhone 4S or older the top obstacle will always be clearly visible. The iPhone 5 and 5s will see a larger portion of the top pipe, but this will not change anything about the gameplay. The maximum value for the bottom pipe is defined such that a pipe always sticks at least 30 points out of the ground to make it clearly visible.
 
-Additionally we define a _pipeDistance _that describes how large the gap between the pipes should be.
+Additionally we define a *pipeDistance* that describes how large the gap between the pipes should be.
 
-Now we implement a new method _setupRandomPosition _that uses the defined border values to calculate a range. Then it generates a random number between 0 and 1 to define which portion of the possible range will be used. It uses the result to position the top pipe and positions the bottom pipe in the defined distance.
+Now we implement a new method *setupRandomPosition* that uses the defined border values to calculate a range. Then it generates a random number between 0 and 1 to define which portion of the possible range will be used. It uses the result to position the top pipe and positions the bottom pipe in the defined distance.
 
 Now let's use this method to generate random obstacles in our game.
 
-Add the necessary method declaration to _Obstacle.h_:
+Add the necessary method declaration to *Obstacle.h*:
 
-		#import "CCNode.h"
-		@interface Obstacle : CCNode
-		- (void)setupRandomPosition;
-		@end
+    #import "CCNode.h"
+    @interface Obstacle : CCNode
+    - (void)setupRandomPosition;
+    @end
 
-Now we can use the method from _MainScene.m. _First add a import statement to the top of _MainScene.m_:
+Now we can use the method from *MainScene.m.* First add a import statement to the top of *MainScene.m*:
 
-		#import "Obstacle.h"
+    #import "Obstacle.h"
 
-Now we need to change the code that we use to load an _Obstacle.ccb_:
+Now we need to change the code that we use to load an *Obstacle.ccb*:
 
-		- (void)spawnNewObstacle {
-			CCNode *previousObstacle = [_obstacles lastObject];
-			CGFloat previousObstacleXPosition = previousObstacle.position.x;
-			if (!previousObstacle) {
-				// this is the first obstacle
-				previousObstacleXPosition = firstObstaclePosition;
-			}
-			Obstacle *obstacle = (Obstacle *)[CCBReader load:@"Obstacle"];
-			obstacle.position = ccp(previousObstacleXPosition + distanceBetweenObstacles, 0);
-			[obstacle setupRandomPosition];
-			[_physicsNode addChild:obstacle];
-			[_obstacles addObject:obstacle];
-		}
+    - (void)spawnNewObstacle {
+        CCNode *previousObstacle = [_obstacles lastObject];
+        CGFloat previousObstacleXPosition = previousObstacle.position.x;
+        if (!previousObstacle) {
+            // this is the first obstacle
+            previousObstacleXPosition = firstObstaclePosition;
+        }
+        Obstacle *obstacle = (Obstacle *)[CCBReader load:@"Obstacle"];
+        obstacle.position = ccp(previousObstacleXPosition + distanceBetweenObstacles, 0);
+        [obstacle setupRandomPosition];
+        [_physicsNode addChild:obstacle];
+        [_obstacles addObject:obstacle];
+    }
 
-In the above code I have added a cast, so that we can treat the loaded _Obstacle.ccb _as an instance _Obstacle_. Additionally I added a line to call the new _setupRandomPosition_ method we just implemented.
+In the above code I have added a cast, so that we can treat the loaded *Obstacle.ccb* as an instance *Obstacle*. Additionally I added a line to call the new *setupRandomPosition* method we just implemented.
 
 If you run the game now you should see random obstacles occurring! Before we move on to the last major step - implementing collisions - we are going to fix a small issue with the drawing order.
 
 # Fixing the drawing order
 
-Because we add the pipes in code they are drawn in front of the ground. By default Cocos2d renders the elements in the reverse order of drawing. We are going to change the draw order manually, forcing the ground to be drawn above the pipes. Add this enum after the constants you have defined in _MainScene.m_:
+Because we add the pipes in code they are drawn in front of the ground. By default Cocos2d renders the elements in the reverse order of drawing. We are going to change the draw order manually, forcing the ground to be drawn above the pipes. Add this enum after the constants you have defined in *MainScene.m*:
 
-		typedef NS_ENUM(NSInteger, DrawingOrder) {
-			DrawingOrderPipes,
-			DrawingOrderGround,
-			DrawingOrdeHero
-		};
+    typedef NS_ENUM(NSInteger, DrawingOrder) {
+        DrawingOrderPipes,
+        DrawingOrderGround,
+        DrawingOrdeHero
+    };
 
 If you are interested in details, [read more](https://www.makegameswith.us/gamernews/368/control-the-drawing-order-in-cocos2d-and-sprite-ki) about the approach we are using here. Next we are going to apply these drawing order values.
 
-In _didLoadFromCCB_ set the _zOrder_ for grounds and the hero by adding:
+In *didLoadFromCCB* set the *zOrder* for grounds and the hero by adding:
 
-		for (CCNode *ground in _grounds) {
-			ground.zOrder = DrawingOrderGround;
-		}
-		_hero.zOrder = DrawingOrdeHero;
+    for (CCNode *ground in _grounds) { 
+        ground.zOrder = DrawingOrderGround;
+    }
+    _hero.zOrder = DrawingOrdeHero;
 
-When we spawn new obstacles set their _zOrder. _Add this line to _spawnNewObstacle_:
+When we spawn new obstacles set their *zOrder.* Add this line to *spawnNewObstacle*:
 
-		obstacle.zOrder = DrawingOrderPipes;
+    obstacle.zOrder = DrawingOrderPipes;
 
 Now you should run the App and see the pipes drawn behind the ground:
 
@@ -558,62 +551,62 @@ Now you should run the App and see the pipes drawn behind the ground:
 
 # The final steps: setting up collisons
 
-First of all: Congratulations for following along this far. Now we are going to set up collision handling so that we can add a portion of frustration to _Flappy Fly_.
+First of all: Congratulations for following along this far. Now we are going to set up collision handling so that we can add a portion of frustration to *Flappy Fly*.
 
-First open _Obstacle.m. _and set the collision type:
+First open *Obstacle.m.* and set the collision type:
 
-		- (void)didLoadFromCCB {
-			_topPipe.physicsBody.collisionType = @"level";
-			_topPipe.physicsBody.sensor = TRUE;
-			_bottomPipe.physicsBody.collisionType = @"level";
-			_bottomPipe.physicsBody.sensor = TRUE;
-		}
+    - (void)didLoadFromCCB {
+        _topPipe.physicsBody.collisionType = @"level";
+        _topPipe.physicsBody.sensor = TRUE;
+        _bottomPipe.physicsBody.collisionType = @"level";
+        _bottomPipe.physicsBody.sensor = TRUE;
+    }
 
-We set the collisionType to "level", we will use this collision type for all deadly objects (ground and obstacles). Setting the _sensor_ value to _TRUE_ tells Chipmunk that the collision handler shall be called upon a collision with this type of object - but that no actual collision shall be performed. This implementation is the same as in Flappy Bird where the bird never actually collides with a pipe but instead drops dead immediately.
+We set the collisionType to "level", we will use this collision type for all deadly objects (ground and obstacles). Setting the *sensor* value to *TRUE* tells Chipmunk that the collision handler shall be called upon a collision with this type of object - but that no actual collision shall be performed. This implementation is the same as in Flappy Bird where the bird never actually collides with a pipe but instead drops dead immediately.
 
-In _MainScene.h _define that we are implementing _CCPhysicsCollisionDelegate_:
+In *MainScene.h* define that we are implementing *CCPhysicsCollisionDelegate*:
 
-		#import "CCNode.h"
-		@interface MainScene : CCNode &lt;CCPhysicsCollisionDelegate&gt;
-		@end
+    #import "CCNode.h"
+    @interface MainScene : CCNode <CCPhysicsCollisionDelegate>
+    @end
 
 This delegate will be called whenever two objects collide.
 
-In _MainScene.m _we need to set the collision type for the hero and the grounds. Change the _didLoadFromCCB_ to look as following:
+In *MainScene.m* we need to set the collision type for the hero and the grounds. Change the *didLoadFromCCB* to look as following:
 
-		- (void)didLoadFromCCB {
-				self.userInteractionEnabled = TRUE;
-				_grounds = @[_ground1, _ground2];
-				for (CCNode *ground in _grounds) {
-					// set collision txpe
-					ground.physicsBody.collisionType = @"level";
-					ground.zOrder = DrawingOrderGround;
-				}
-				// set this class as delegate
-				_physicsNode.collisionDelegate = self;
-				// set collision txpe
-				_hero.physicsBody.collisionType = @"hero";
-				_hero.zOrder = DrawingOrdeHero;
-				_obstacles = [NSMutableArray array];
-				[self spawnNewObstacle];
-				[self spawnNewObstacle];
-				[self spawnNewObstacle];
-		}
+    - (void)didLoadFromCCB {
+        self.userInteractionEnabled = TRUE;
+        _grounds = @[_ground1, _ground2];
+        for (CCNode *ground in _grounds) {
+            // set collision txpe
+            ground.physicsBody.collisionType = @"level";
+            ground.zOrder = DrawingOrderGround;
+        }
+        // set this class as delegate
+        _physicsNode.collisionDelegate = self;
+        // set collision txpe
+        _hero.physicsBody.collisionType = @"hero";
+        _hero.zOrder = DrawingOrdeHero;
+        _obstacles = [NSMutableArray array];
+        [self spawnNewObstacle];
+        [self spawnNewObstacle];
+        [self spawnNewObstacle];
+    }
 
 We have added a collision type for the hero and the ground and did set this object as collision delegate of the physics node.
 
-As a next step open SpriteBuilder again and_ enable physics _for both pipes, turning them into static physics bodies:
+As a next step open SpriteBuilder again and *enable physics* for both pipes, turning them into static physics bodies:
 
 ![](https://static.makegameswith.us/gamernews_images/tFM8ToShIh/Screen Shot 2014-02-10 at 22.29.55.png)
 
-Last, we need to implement a collision handler method. As parameter names we have to use the collision types that we defined earlier. Add this method to _MainScene.m_:
+Last, we need to implement a collision handler method. As parameter names we have to use the collision types that we defined earlier. Add this method to *MainScene.m*:
 
-		-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
-			NSLog(@"Game Over");
-			return TRUE;
-		}
+    -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
+        NSLog(@"Game Over");
+        return TRUE;
+    }
 
-The method above will be called whenever a object with type _hero_ collides with an object of type _level_.
+The method above will be called whenever a object with type *hero* collides with an object of type *level*.
 
 Publish &amp; Run in Xcode. Now any time you collide with the ground or a pipe "Game Over" will be printed to the console.
 
@@ -630,80 +623,80 @@ First lets add a game over button in SpriteBuilder:
 
 ![](https://static.makegameswith.us/gamernews_images/KSf2oVRrVg/Screen Shot 2014-02-10 at 22.43.41.png)
 
-Center the button. Set a code connection up: __restartButton _and a selector that shall be called when the button is pressed: _restart_.
+Center the button. Set a code connection up: *_restartButton* and a selector that shall be called when the button is pressed: *restart*.
 
 Now set the button to be invisible:
 
 ![](https://static.makegameswith.us/gamernews_images/DAp6ju8Yc2/Screen Shot 2014-02-10 at 22.43.53.png)
 
-We will make the button visible once the game over situation occurs. Now switch to _MainScene.m_ and add this instance variable:
+We will make the button visible once the game over situation occurs. Now switch to *MainScene.m* and add this instance variable:
 
-		CCButton *_restartButton;
+    CCButton *_restartButton;
 
-Next, extend the collision handling method to show this restart button:
+	Next, extend the collision handling method to show this restart button:
 
-		-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
-			NSLog(@"Game Over");
-			_restartButton.visible = TRUE;
-			return TRUE;
-		}
+    -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
+        NSLog(@"Game Over");
+        _restartButton.visible = TRUE;
+        return TRUE;
+    }
 
-Finally implement a _restart_ method that will be called once the restart button is pressed:
+	Finally implement a *restart* method that will be called once the restart button is pressed:
 
-		- (void)restart {
-			CCScene *scene = [CCBReader loadAsScene:@"MainScene"];
-			[[CCDirector sharedDirector] replaceScene:scene];
-		}
+    - (void)restart {
+        CCScene *scene = [CCBReader loadAsScene:@"MainScene"];
+        [[CCDirector sharedDirector] replaceScene:scene];
+    }
 
 This method will reload the entire scene - the complete game will restart. Now you can test this new functionality!
 
 You will see that restarting the game works, but we don't have a real "game over" state yet. The scrolling goes on and we don't have a real visualization of a game over situation.
 
-Now we are going to add a __gameOver_ flag and a _gameOver_ method. We are also replacing the _scrollSpeed _constant with a __scrollSpeed _variable. Add these instance variables:
+Now we are going to add a *_gameOver* flag and a *gameOver* method. We are also replacing the *scrollSpeed* constant with a *_scrollSpeed* variable. Add these instance variables:
 
-		BOOL _gameOver;
-		CGFloat _scrollSpeed;
+        BOOL _gameOver;
+        CGFloat _scrollSpeed;
 
-Initialize the new __scrollSpeed _variable in _didLoadFromCCB_:
+Initialize the new *_scrollSpeed* variable in *didLoadFromCCB*:
 
-		_scrollSpeed = 80.f;
+    _scrollSpeed = 80.f;
 
-Replace the two occurrences of _scrollSpeed_ with __scrollSpeed._
+Replace the two occurrences of *scrollSpeed* with *_scrollSpeed.*
 
-Now add the new _gameOver _method to _MainScene.m_:
+Now add the new *gameOver* method to *MainScene.m*:
 
-		- (void)gameOver {
-			if (!_gameOver) {
-				_scrollSpeed = 0.f;
-				_gameOver = TRUE;
-				_restartButton.visible = TRUE;
-				_hero.rotation = 90.f;
-				_hero.physicsBody.allowsRotation = FALSE;
-				[_hero stopAllActions];
-				CCActionMoveBy *moveBy = [CCActionMoveBy actionWithDuration:0.2f position:ccp(-2, 2)];
-				CCActionInterval *reverseMovement = [moveBy reverse];
-				CCActionSequence *shakeSequence = [CCActionSequence actionWithArray:@[moveBy, reverseMovement]];
-				CCActionEaseBounce *bounce = [CCActionEaseBounce actionWithAction:shakeSequence];
-				[self runAction:bounce];
-			}
-		}
+    - (void)gameOver {
+        if (!_gameOver) {
+            _scrollSpeed = 0.f;
+            _gameOver = TRUE;
+            _restartButton.visible = TRUE;
+            _hero.rotation = 90.f;
+            _hero.physicsBody.allowsRotation = FALSE;
+            [_hero stopAllActions];
+            CCActionMoveBy *moveBy = [CCActionMoveBy actionWithDuration:0.2f position:ccp(-2, 2)];
+            CCActionInterval *reverseMovement = [moveBy reverse];
+            CCActionSequence *shakeSequence = [CCActionSequence actionWithArray:@[moveBy, reverseMovement]];
+            CCActionEaseBounce *bounce = [CCActionEaseBounce actionWithAction:shakeSequence];
+            [self runAction:bounce];
+        }
+    }
 
 And call this new method from our collision handler:
-		
-		-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
-			[self gameOver];
-			return TRUE;
-		}
 
-You also need to update the _touchBegan_ method to ensure that the user cannot "jump" when the hero is dead:
+    -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
+        [self gameOver];
+        return TRUE;
+    }
 
-- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-	if (!_gameOver) {
-		[_hero.physicsBody applyImpulse:ccp(0, 400.f)];
-		[_hero.physicsBody applyAngularImpulse:10000.f];
-		_sinceTouch = 0.f;
-	}
-}
+You also need to update the *touchBegan* method to ensure that the user cannot "jump" when the hero is dead:
+
+    - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+        if (!_gameOver) {
+            [_hero.physicsBody applyImpulse:ccp(0, 400.f)];
+            [_hero.physicsBody applyAngularImpulse:10000.f];
+            _sinceTouch = 0.f;
+        }
+    }
 
 Now you can run your app again and you should see a complete game over sequence. Now there is literally one last point left: implementing points!
 
@@ -711,47 +704,47 @@ Now you can run your app again and you should see a complete game over sequence.
 
 Now that the player can die, lets implement the very last step and let players collect points.
 
-First create a _LabelTTF_ in_ MainScene.ccb _to display the current score:
+First create a *LabelTTF* in *MainScene.ccb* to display the current score:
 
 ![](https://static.makegameswith.us/gamernews_images/VjQs791bhq/Screen Shot 2014-02-10 at 23.27.05.png)
 
-Define a code connection with the variable __scoreLabel._
+Define a code connection with the variable *_scoreLabel.*
 
-Now open _Obstacle.ccb _to make the _CCNode _between the pipes a **static physics body** and also set a **custom class** called _Goal_:
+Now open *Obstacle.ccb* to make the *CCNode* between the pipes a **static physics body** and also set a **custom class** called *Goal*:
 
 ![](https://static.makegameswith.us/gamernews_images/ic0IcxMDKp/Screen Shot 2014-02-10 at 23.32.56.png)
 
 We will now switch to Xcode to implement a score increase once the player hits one of these goals.
 
-In Xcode create a new _Goal_ class:
+In Xcode create a new *Goal* class:
 
 ![](https://static.makegameswith.us/gamernews_images/yn8wpiz0sV/Screen Shot 2014-02-10 at 23.34.58.png)
 
-Add this method to _Goal.m_:
+Add this method to *Goal.m*:
 
-		- (void)didLoadFromCCB {
-			self.physicsBody.collisionType = @"goal";
-			self.physicsBody.sensor = TRUE;
-		}
+    - (void)didLoadFromCCB {
+        self.physicsBody.collisionType = @"goal";
+        self.physicsBody.sensor = TRUE;
+    }
 
-We will use the collision type in _MainScene.m_ to detect when a player passed through a pipe.
+We will use the collision type in *MainScene.m* to detect when a player passed through a pipe.
 
-Open _MainScene.m_ and create a new member variable for the score label and the score:
+Open *MainScene.m* and create a new member variable for the score label and the score:
 
-		NSInteger _points;
-		CCLabelTTF *_scoreLabel;
+        NSInteger _points;
+        CCLabelTTF *_scoreLabel;
 
-Now, as a very final step, implement a second collision handler that will be called when the player reaches a goal. Add this method to _MainScene.m_:
+Now, as a very final step, implement a second collision handler that will be called when the player reaches a goal. Add this method to *MainScene.m*:
 
-		-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero goal:(CCNode *)goal {
-			[goal removeFromParent];
-			_points++;
-			_scoreLabel.string = [NSString stringWithFormat:@"%d", _points];
-			return TRUE;
-		}
+    -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero goal:(CCNode *)goal {
+        [goal removeFromParent];
+        _points++;
+        _scoreLabel.string = [NSString stringWithFormat:@"%d", _points];
+        return TRUE;
+    }
 
 Congratulations! Now you should see the complete game previewed at the beginning of this tutorial. You should have learned a lot along the way.
 
-** If you enjoyed this you should apply to our [Summer Academy](http://makegameswith.us/summer-academy/) and ship your own iPhone game this summer! **
+**If you enjoyed this you should apply to our [Summer Academy](http://makegameswith.us/summer-academy/) and ship your own iPhone game this summer!** 
 
 benji@makegameswith.us
