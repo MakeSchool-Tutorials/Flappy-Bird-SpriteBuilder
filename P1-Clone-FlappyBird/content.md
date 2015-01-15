@@ -53,7 +53,7 @@ Before we can start we need to change to project settings. *Flappy Fly* is a por
 
 ![](https://static.makegameswith.us/gamernews_images/YiBhlFpagq/Screen Shot 2014-02-10 at 15.28.09.png)
 
-	                                         Now publish your project and run it in Xcode! Your simulator should be displayed in portrait mode.
+Now publish your project and run it in Xcode! Your simulator should be displayed in portrait mode.
 
 ## Adding Art
 
@@ -67,7 +67,7 @@ Now add the background image:
 
 Set the reference corner to the top left (that means the position of the background will be defined starting in the top left corner). Set position to (0,0) and anchor point to (0,1). Now the background will stick at the top left corner, independent of the device size. This is important because we want to support 3.5-inch and 4 inch iPhones. 
 
-	                                         You can preview how your app will look on both of these devices using this setting:
+You can preview how your app will look on both of these devices using this setting:
 
 ![](https://static.makegameswith.us/gamernews_images/Sj3ZOu0HpA/Screen Shot 2014-02-10 at 15.36.21.png)
 
@@ -91,7 +91,7 @@ We want the clouds to be positioned from the top left corner, so set the referen
 
 Now we're going to create new *CCB-File* for the fly and add an animation for the hero in our game.
 
-	                                       Create a new Sprite *CCB-File*:
+Create a new Sprite *CCB-File*:
 
 ![](https://static.makegameswith.us/gamernews_images/0MT1ImitnS/Screen Shot 2014-02-10 at 15.55.40.png)
 
