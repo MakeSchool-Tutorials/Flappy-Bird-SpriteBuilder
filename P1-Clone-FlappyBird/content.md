@@ -1,6 +1,7 @@
 ---
 title: Learn to build Flappy Fly!
 slug: build-flappy-fly
+gamernews_id: 369
 ---            
 
 **Learn to build Flappy Fly!**
