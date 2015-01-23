@@ -745,6 +745,6 @@ Now, as a very final step, implement a second collision handler that will be cal
 
 Congratulations! Now you should see the complete game previewed at the beginning of this tutorial. You should have learned a lot along the way.
 
-**If you enjoyed this you should apply to our [Summer Academy](http://makegameswith.us/summer-academy/) and ship your own iPhone game this summer!** 
+**If you enjoyed this you should apply to our [Summer Academy](http://makeschool.com/summer-academy/) and ship your own iPhone game or app this summer!** 
 
-benji@makegameswith.us
+benji@makeschool.com
