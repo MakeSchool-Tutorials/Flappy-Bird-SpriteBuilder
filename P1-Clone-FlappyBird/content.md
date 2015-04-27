@@ -18,17 +18,17 @@ If you complete this tutorial you will learn how to:
 
 *   implement an endless scroller
 *   implement procedural level generation
-*   use Coco2d 3.0 physics
+*   use Coco2d 3.4 physics
 
-The solution to this tutorial is available on [GitHub](https://github.com/MakeGamesWithUs/FlappyFly.spritebuilder):
+The solution to this tutorial is available on [GitHub](https://github.com/MakeSchool-Tutorials/Flappy-Bird-SpriteBuilder):
 
-[![](https://static.makegameswith.us/gamernews_images/TVZ2mTmQpl/labtocat.png)](https://github.com/MakeGamesWithUs/FlappyFly.spritebuilder)
+[![](https://static.makegameswith.us/gamernews_images/TVZ2mTmQpl/labtocat.png)](https://github.com/MakeSchool-Tutorials/Flappy-Bird-SpriteBuilder)
 
 Let's get started with *Flappy Fly.*
 
 # Getting Started
 
-First of all let's check we are on the same page. This tutorial is written using SpriteBuilder 1.0.3. It is important that you use at least this version - as of this writing we are still using a pre-release version of Cocos2d 3.0 and using an older version of SpriteBuilder may lead to different results in some of the steps.
+First of all let's check we are on the same page. This tutorial is written using SpriteBuilder 1.4.9. It is important that you use at least this version - as of this writing we are still using a pre-release version of Cocos2d 3.4 and using an older version of SpriteBuilder may lead to different results in some of the steps.
 
 Check your version of SpriteBuilder:
 
