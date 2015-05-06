@@ -2,7 +2,7 @@
 title: Learn to build Flappy Fly!
 slug: build-flappy-fly
 gamernews_id: 369
----            
+---
 
 **Learn to build Flappy Fly!**
 
@@ -32,11 +32,11 @@ First of all let's check we are on the same page. This tutorial is written using
 
 Check your version of SpriteBuilder:
 
-![](https://static.makegameswith.us/gamernews_images/Y28ec2947b/Screen Shot 2014-02-10 at 15.13.33.png)
+![](./about_spritebuilder.png)
 
 As always the first step is to create a new SpriteBuilder project. Also [download our art pack for this game](https://s3.amazonaws.com/mgwu-misc/FlappyFlyArtPack.zip). Add the art pack you just downloaded to your SpriteBuilder project by dragging the folder into the Resource Pane on the left:
 
-![](https://static.makegameswith.us/gamernews_images/NNskrAxoef/Screen Shot 2014-02-10 at 15.15.03.png)
+![](./art_pack.png)
 
 # Basic concepts of a side scroller in Cocos2d
 
@@ -52,7 +52,7 @@ This will make the fly appear at the same position during the complete game. If 
 
 Before we can start we need to change to project settings. *Flappy Fly* is a portrait mode game and the assets for the game are provided in 2x (iPhone retina resolution). Open the project settings and adjust these two settings:
 
-![](https://static.makegameswith.us/gamernews_images/YiBhlFpagq/Screen Shot 2014-02-10 at 15.28.09.png)
+![](./project_settings.png)
 
 Now publish your project and run it in Xcode! Your simulator should be displayed in portrait mode.
 
@@ -64,13 +64,13 @@ Time to add some art in SpriteBuilder. First, remove the label and the backgroun
 
 Now add the background image:
 
-![](https://static.makegameswith.us/gamernews_images/2yWndHPE19/Screen Shot 2014-02-10 at 15.33.33.png)
+![](./background_image.png)
 
-Set the reference corner to the top left (that means the position of the background will be defined starting in the top left corner). Set position to (0,0) and anchor point to (0,1). Now the background will stick at the top left corner, independent of the device size. This is important because we want to support 3.5-inch and 4 inch iPhones. 
+Set the reference corner to the top left (that means the position of the background will be defined starting in the top left corner). Set position to (0,0) and anchor point to (0,1). Now the background will stick at the top left corner, independent of the device size. This is important because we want to support 3.5-inch and 4 inch iPhones.
 
 You can preview how your app will look on both of these devices using this setting:
 
-![](https://static.makegameswith.us/gamernews_images/Sj3ZOu0HpA/Screen Shot 2014-02-10 at 15.36.21.png)
+![](./device_preview.png)
 
 ## Ground
 
@@ -537,7 +537,7 @@ If you are interested in details, [read more](https://www.makegameswith.us/gamer
 
 In *didLoadFromCCB* set the *zOrder* for grounds and the hero by adding:
 
-    for (CCNode *ground in _grounds) { 
+    for (CCNode *ground in _grounds) {
         ground.zOrder = DrawingOrderGround;
     }
     _hero.zOrder = DrawingOrdeHero;
@@ -746,6 +746,6 @@ Now, as a very final step, implement a second collision handler that will be cal
 
 Congratulations! Now you should see the complete game previewed at the beginning of this tutorial. You should have learned a lot along the way.
 
-**If you enjoyed this you should apply to our [Summer Academy](http://makeschool.com/summer-academy/) and ship your own iPhone game or app this summer!** 
+**If you enjoyed this you should apply to our [Summer Academy](http://makeschool.com/summer-academy/) and ship your own iPhone game or app this summer!**
 
 benji@makeschool.com
