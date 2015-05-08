@@ -146,7 +146,7 @@ Great! Now let's get to the scrolling part of our game!
 
 We are going to begin by moving the fly with a constant speed. First setup a code connection for the fly so that we can manipulate the velocity in code:
 
-![](https://static.makegameswith.us/gamernews_images/GJfqUcoo1R/Screen Shot 2014-02-10 at 16.38.35.png)
+![](./hero_code_connection.png)
 
 Now open Xcode, we are going to write some Objective-C code!
 
@@ -176,7 +176,7 @@ Just as in Flappy Bird the background images will be all static. The only things
 
 To scroll the physics node in code we need to setup a new code connection:
 
-![](https://static.makegameswith.us/gamernews_images/WeN7ErSVDT/Screen Shot 2014-02-10 at 17.03.04.png)
+![](./physics_node_code_connection.png)
 
 Now switch to Xcode and create a new private instance variable called *_physicsNode* for this code connection. Your private variables now should look like this:
 
@@ -204,7 +204,7 @@ We will have to fix this by adding a second piece of ground and implement an end
 
 The first step will be adding a second piece of ground in SpriteBuilder:
 
-![](https://static.makegameswith.us/gamernews_images/qyDSCLgMiu/Screen Shot 2014-02-10 at 17.14.51.png)
+![](./stage_border.png)
 
 Drag the second piece of ground below the *CCPhysicsNode*. Set the position to (348,12). *348* is the width of the first piece of ground *12* is the y-Position of the first piece of ground. **Also set the anchor point to (0 , 0.5), the same as the first piece**. This way the two elements will line up nicely. If you want to be able to see how they line up you can select *Document -&gt; Stage Border -&gt; None* from the SpriteBuilder menu which will make all Nodes visible, even if they are outside the screen bounds.
 
@@ -256,7 +256,7 @@ At the moment our fly drops to the floor (slowly) and there is nothing a player 
 
 First, let's increase the gravity to -700 to make the fly drop faster. You can do this in SpriteBuilder when the physics node is selected:
 
-![](https://static.makegameswith.us/gamernews_images/sJqBDNqwJn/Screen Shot 2014-02-10 at 17.50.06.png)
+![](./gravity.png)
 
 Now we are going to add touch handling in code. Open *MainScene.m* and add this line to *didLoadFromCCB* to enable touches in our game:
 
@@ -328,7 +328,7 @@ Finally we check if more than half a second passed since the last touch. If that
 
 Now run your game again. The behaviour should be similar to this:
 
-![](https://static.makegameswith.us/gamernews_images/4bC4exbJ1k/Flying.gif)
+![](./flappy_rotate.gif)
 
 By now our game looks pretty decent! There is just one very important thing missing: obstacles!
 
@@ -338,7 +338,7 @@ Now we are getting to a very interesting part. We will be adding obstacles and i
 
 Go back to SpriteBuilder and create a new *CCB-File* for the obstacles:
 
-![](https://static.makegameswith.us/gamernews_images/dvnDNIpW3N/Screen Shot 2014-02-10 at 18.39.07.png)
+![](./obstacle_new.png)
 
 We will construct our obstacles with two pipes, one at the top and one at the bottom and *CCNode* in between which we will use as goal (the player will get a point when colliding with this goal).
 
@@ -346,25 +346,25 @@ Add *pipe_top.png* and *pipe_bottom.png* to your new *Obstacle.ccb.* Also add a 
 
 The root node:
 
-![](https://static.makegameswith.us/gamernews_images/IwHMm4hf4K/Screen Shot 2014-02-10 at 18.57.26.png)
+![](./pipe_root_node.png)
 
 Content size is (80, 568). The anchor point is (0,0).
 
 The top pipe:
 
-![](https://static.makegameswith.us/gamernews_images/pPNSScxZmn/Screen Shot 2014-02-10 at 18.59.39.png)
+![](./pipe_top.png)
 
 The reference corner is top left. The anchor point is (0.5, 0). The **x-position is 50% of the parent size**.
 
 The bottom pipe:
 
-![](https://static.makegameswith.us/gamernews_images/jCe5wmxDcW/Screen Shot 2014-02-10 at 19.02.02.png)
+![](./pipe_bottom.png)
 
 The reference corner is top left. The anchor point is (0.5, 1). The **x-position is 50% of the parent size**.
 
 The exact goal node position is not that relevant. This is the one I used:
 
-![](https://static.makegameswith.us/gamernews_images/NwMztOGNZ5/Screen Shot 2014-02-10 at 19.03.33.png)
+![](./pipe_goal.png)
 
 Most importantly it has to be stretched over both pipes.
 
@@ -372,7 +372,7 @@ It is important to get this positioning right, that will ensure that the obstacl
 
 You can test if you setup the obstacle correct by adding one to the *MainScene.ccb*. The result should be similar to this one:
 
-![](https://static.makegameswith.us/gamernews_images/B7Q9bSw2XS/Screen Shot 2014-02-10 at 19.07.20.png)
+![](./pipe_test.png)
 
 Once you have successfully tested that the obstacle looks correct, remove it from *MainScene.ccb,* as we will be adding obstacles from code.
 
