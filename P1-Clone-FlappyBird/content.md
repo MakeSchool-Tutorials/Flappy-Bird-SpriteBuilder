@@ -264,7 +264,7 @@ Now we are going to add touch handling in code. Open *MainScene.m* and add this 
 
 Then add a method to handle beginning touches:
 
-    - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
         [_hero.physicsBody applyImpulse:ccp(0, 400.f)];
     }
 
@@ -300,7 +300,7 @@ First step, let's add a private member variable to keep track of the time since 
 
 Next, extend the touch method to trigger the upward rotation on a touch. We will do this by applying an angular impulse. We also need to reset the *_sinceTouch* value every time a touch occurs:
 
-    - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
         [_hero.physicsBody applyImpulse:ccp(0, 400.f)];
         [_hero.physicsBody applyAngularImpulse:10000.f];
         _sinceTouch = 0.f;
@@ -691,7 +691,7 @@ And call this new method from our collision handler:
 
 You also need to update the *touchBegan* method to ensure that the user cannot "jump" when the hero is dead:
 
-    - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
         if (!_gameOver) {
             [_hero.physicsBody applyImpulse:ccp(0, 400.f)];
             [_hero.physicsBody applyAngularImpulse:10000.f];
