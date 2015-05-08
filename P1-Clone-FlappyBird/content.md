@@ -6,7 +6,7 @@ gamernews_id: 369
 
 **Learn to build Flappy Fly!**
 
-![](https://static.makegameswith.us/gamernews_images/8CteKC7kcM/GamePreview.gif)
+![](./GamePreview.gif)
 
 * * *
 
@@ -22,7 +22,7 @@ If you complete this tutorial you will learn how to:
 
 The solution to this tutorial is available on [GitHub](https://github.com/MakeSchool-Tutorials/Flappy-Bird-SpriteBuilder):
 
-[![](https://static.makegameswith.us/gamernews_images/TVZ2mTmQpl/labtocat.png)](https://github.com/MakeSchool-Tutorials/Flappy-Bird-SpriteBuilder)
+[![](./labtocat.png)](https://github.com/MakeSchool-Tutorials/Flappy-Bird-SpriteBuilder)
 
 Let's get started with *Flappy Fly.*
 
@@ -76,7 +76,7 @@ You can preview how your app will look on both of these devices using this setti
 
 The ground image has a bigger height than necessary - this way can adjust the space at the bottom of the screen to be bigger than we will make it in this tutorial. Add the ground image:
 
-![](https://static.makegameswith.us/gamernews_images/D4qGeTQbrv/Screen Shot 2014-02-10 at 15.39.28.png)
+![](./ground.png)
 
 Set the reference corner to the left bottom. Set the position to (0, 12) and the anchor point to (0,0). This way the ground will stick at the left bottom, independent of the screen size.
 
@@ -84,7 +84,7 @@ Set the reference corner to the left bottom. Set the position to (0, 12) and the
 
 Add the clouds to the scene:
 
-![](https://static.makegameswith.us/gamernews_images/1PUxwfY8Gx/Screen Shot 2014-02-10 at 15.45.17.png)
+![](./clouds.png)
 
 We want the clouds to be positioned from the top left corner, so set the reference corner to the top left. As position use (187,134) (or any other value you think looks good to provide you some sort of creative freedom ;) ).
 
@@ -94,11 +94,11 @@ Now we're going to create new *CCB-File* for the fly and add an animation for th
 
 Create a new Sprite *CCB-File*:
 
-![](https://static.makegameswith.us/gamernews_images/0MT1ImitnS/Screen Shot 2014-02-10 at 15.55.40.png)
+![](./hero_new.png)
 
 Set the sprite frame for the fly to *fly1.png* from the art pack:
 
-![](https://static.makegameswith.us/gamernews_images/NpZDZYxUAH/Screen Shot 2014-02-10 at 15.59.02.png)
+![](./hero_sprite.png)
 
 ## Setting up the flying animation
 
