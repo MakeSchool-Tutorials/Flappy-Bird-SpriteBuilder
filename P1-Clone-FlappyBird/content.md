@@ -451,13 +451,13 @@ Now run your game. You should see an endless amount of scrolling obstacles! You 
 
 The next challenge we are going to tackle is generating random obstacles. This means we will be varying the position of the gap between the two pipes. The first step is setting up a custom class for the obstacle. Call the class *Obstacle* and be sure to have the root node selected when you set it:
 
-![](https://static.makegameswith.us/gamernews_images/EKKV0s7OHW/Screen Shot 2014-02-10 at 19.37.24.png)
+![](./obstacle_custom_class.png)
 
 Also set up a code connection for the top and the bottom pipe. You have done this many times before so we won't repeat. Call the connection *_topPipe* and *_bottomPipe*.
 
 Once you have setup everything create a new class *Obstacle* in XCode. It should be a subclass of *CCNode*:
 
-![](https://static.makegameswith.us/gamernews_images/KinWiYqukS/Screen Shot 2014-02-10 at 19.40.10.png)
+![](./obstacle_xcode.png)
 
 I will give you the complete content of *Obstacle*.m at once. Add it to your file, read it and then we will discuss it:
 
@@ -548,7 +548,7 @@ When we spawn new obstacles set their *zOrder.* Add this line to *spawnNewObstac
 
 Now you should run the App and see the pipes drawn behind the ground:
 
-![](https://static.makegameswith.us/gamernews_images/YekaG7W71H/iOS Simulator Screen shot 10 Feb 2014 20.44.05.png)
+![](./flappy_fun.png)
 
 # The final steps: setting up collisons
 
@@ -598,7 +598,7 @@ We have added a collision type for the hero and the ground and did set this obje
 
 As a next step open SpriteBuilder again and *enable physics* for both pipes, turning them into static physics bodies:
 
-![](https://static.makegameswith.us/gamernews_images/tFM8ToShIh/Screen Shot 2014-02-10 at 22.29.55.png)
+![](./pipe_physics.png)
 
 Last, we need to implement a collision handler method. As parameter names we have to use the collision types that we defined earlier. Add this method to *MainScene.m*:
 
@@ -622,13 +622,13 @@ Instead of only showing a message in the console we now want implement a game ov
 
 First lets add a game over button in SpriteBuilder:
 
-![](https://static.makegameswith.us/gamernews_images/KSf2oVRrVg/Screen Shot 2014-02-10 at 22.43.41.png)
+![](./restart_code_connection.png)
 
 Center the button. Set a code connection up: *_restartButton* and a selector that shall be called when the button is pressed: *restart*.
 
 Now set the button to be invisible:
 
-![](https://static.makegameswith.us/gamernews_images/DAp6ju8Yc2/Screen Shot 2014-02-10 at 22.43.53.png)
+![](./restart_invisible.png)
 
 We will make the button visible once the game over situation occurs. Now switch to *MainScene.m* and add this instance variable:
 
@@ -707,13 +707,13 @@ Now that the player can die, lets implement the very last step and let players c
 
 First create a *LabelTTF* in *MainScene.ccb* to display the current score:
 
-![](https://static.makegameswith.us/gamernews_images/VjQs791bhq/Screen Shot 2014-02-10 at 23.27.05.png)
+![](./score_code_connection.png)
 
 Define a code connection with the variable *_scoreLabel.*
 
 Now open *Obstacle.ccb* to make the *CCNode* between the pipes a **static physics body** and also set a **custom class** called *Goal*:
 
-![](https://static.makegameswith.us/gamernews_images/ic0IcxMDKp/Screen Shot 2014-02-10 at 23.32.56.png)
+![](./goal_code_connection.png)
 
 We will now switch to Xcode to implement a score increase once the player hits one of these goals.
 
