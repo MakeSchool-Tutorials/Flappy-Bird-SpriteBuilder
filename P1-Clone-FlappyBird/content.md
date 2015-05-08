@@ -104,15 +104,15 @@ Set the sprite frame for the fly to *fly1.png* from the art pack:
 
 If you have problems following the steps, you should take a look at the [chapter in our beginner tutorial](https://www.makegameswith.us/tutorials/getting-started-with-spritebuilder/animating-spritebuilder/) that explains timeline animations in detail. The animation we are about to define will be 1 second long and then loop. So in the first step we need to set the timeline duration to 1 second:
 
-![](https://static.makegameswith.us/gamernews_images/B75LIHoJdv/Timeline.gif)
+![](./animation_duration.gif)
 
 Now we are going to insert six *Sprite Frame Keyframes* in which we are going to switch between the two images *fly1.png* and *fly2.png.* This is how you insert a Sprite Frame Keyframe:
 
-![](https://static.makegameswith.us/gamernews_images/itKlcBE6Y5/Screen Shot 2014-02-10 at 16.07.04.png)
+![](./sprite_frame.png)
 
 Note that the *CCSprite* needs to be selected in the timeline in order to add a Keyframe. Add 6 of these Sprite Frames and use the *Sprite Frame* property of the *CCSprite* to switch between the two different fly images. Also chain this timeline to itself, so that the animation is repeated infinitely. Once you are done, the result should look similar to this one:
 
-![](https://static.makegameswith.us/gamernews_images/70O82VzZyd/FlyAnimation.gif)
+![](./animation_loop.gif)
 
 Once again, if you had problems with one of these steps please check the beginner tutorial for detailed explanation.
 
@@ -120,25 +120,25 @@ Once again, if you had problems with one of these steps please check the beginne
 
 Because our game uses physics we need to use a *CCPhysicsNode*. Open *MainScene.ccb* and drag a *CCPhysicsNode* below the root node, set the size of the CCPhysicsNode to be a 100% of the parents size:
 
-![](https://static.makegameswith.us/gamernews_images/OrLEzWGkN7/Screen Shot 2014-02-10 at 16.17.48.png)
+![](./physics_node.png)
 
 Now make the ground a static physics body and add it to the *CCPhysicsNode* (remember? Every Node that has physics enabled needs to be below a *CCPhysicsNode*!):
 
-![](https://static.makegameswith.us/gamernews_images/P74n6vPJZF/Screen Shot 2014-02-10 at 16.21.57.png)
+![](./ground_physics.png)
 
 Now drag the *Hero.ccb* file to this scene to add the hero to the gameplay. Make the hero a child of the CCPhysicsNode and make the hero a dynamic physics object:
 
-![](https://static.makegameswith.us/gamernews_images/kFK3nBC5pq/Screen Shot 2014-02-10 at 16.25.52.png)
+![](./hero_physics.png)
 
 Now, before we run the game and see the fly drop lets add the bush above the ground to complete the visual appeal of *Flappy Fly*:
 
-![](https://static.makegameswith.us/gamernews_images/nALIgK9ypZ/Screen Shot 2014-02-10 at 16.31.43.png)
+![](./bush.png)
 
 Set the reference corner for the bush to bottom left, just as you did for the ground. Also make sure that all the decorative elements are placed above the *CCPhysicsNode* in the timeline. This will ensure that the hero will be drawn in front of the background images.
 
 You are now again ready to publish your project and run the App from Xcode. You should see the fly slowly sailing down and coming to a rest on the ground:
 
-![](https://static.makegameswith.us/gamernews_images/H8dS2o4jig/iOS Simulator Screen shot 10 Feb 2014 16.31.06.png)
+![](./flappy_fail.png)
 
 Great! Now let's get to the scrolling part of our game!
 
