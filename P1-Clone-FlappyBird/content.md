@@ -719,7 +719,7 @@ We will now switch to Xcode to implement a score increase once the player hits o
 
 In Xcode create a new *Goal* class:
 
-![](https://static.makegameswith.us/gamernews_images/yn8wpiz0sV/Screen Shot 2014-02-10 at 23.34.58.png)
+![](./goal_xcode.png)
 
 Add this method to *Goal.m*:
 
