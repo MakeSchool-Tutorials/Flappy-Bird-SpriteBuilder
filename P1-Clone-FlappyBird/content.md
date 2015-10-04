@@ -26,7 +26,7 @@ The solution to this tutorial is available on [GitHub](https://github.com/MakeSc
 
 Let's get started with *Flappy Fly.*
 
-# Getting Started
+## Getting Started
 
 First of all let's check we are on the same page. This tutorial is written using SpriteBuilder 1.4.9. It is important that you use at least this version - as of this writing we are still using a pre-release version of Cocos2d 3.4 and using an older version of SpriteBuilder may lead to different results in some of the steps.
 
@@ -38,7 +38,7 @@ As always the first step is to create a new SpriteBuilder project. Also [downloa
 
 ![](./art_pack.png)
 
-# Basic concepts of a side scroller in Cocos2d
+## Basic concepts of a side scroller in Cocos2d
 
 If you have never built a side scroller before this introduction will help you understand some concepts. Most developers start developing a side scroller with a static hero and a level that scrolls towards this hero. However, for physics engines it is a lot easier if the hero moves through the level. We will implement the game as following:
 
@@ -48,7 +48,7 @@ If you have never built a side scroller before this introduction will help you u
 
 This will make the fly appear at the same position during the complete game. If you can't follow don't worry, things will get easier once we put them into action.
 
-# Setup the Gameplay scene
+## Setup the Gameplay scene
 
 Before we can start we need to change to project settings. *Flappy Fly* is a portrait mode game and the assets for the game are provided in 2x (iPhone retina resolution). Open the project settings and adjust these two settings:
 
@@ -56,11 +56,11 @@ Before we can start we need to change to project settings. *Flappy Fly* is a por
 
 Now publish your project and run it in Xcode! Your simulator should be displayed in portrait mode.
 
-## Adding Art
+#### Adding Art
 
 Time to add some art in SpriteBuilder. First, remove the label and the background image from the *MainScene*, leaving you with a blank screen.
 
-## Background Image
+#### Background Image
 
 Now add the background image:
 
@@ -72,7 +72,7 @@ You can preview how your app will look on both of these devices using this setti
 
 ![](./device_preview.png)
 
-## Ground
+#### Ground
 
 The ground image has a bigger height than necessary - this way can adjust the space at the bottom of the screen to be bigger than we will make it in this tutorial. Add the ground image:
 
@@ -80,7 +80,7 @@ The ground image has a bigger height than necessary - this way can adjust the sp
 
 Set the reference corner to the left bottom. Set the position to (0, 12) and the anchor point to (0,0). This way the ground will stick at the left bottom, independent of the screen size.
 
-## Clouds
+#### Clouds
 
 Add the clouds to the scene:
 
@@ -88,7 +88,7 @@ Add the clouds to the scene:
 
 We want the clouds to be positioned from the top left corner, so set the reference corner to the top left. As position use (187,134) (or any other value you think looks good to provide you some sort of creative freedom ;) ).
 
-# Creating the fly
+## Creating the fly
 
 Now we're going to create new *CCB-File* for the fly and add an animation for the hero in our game.
 
@@ -100,7 +100,7 @@ Set the sprite frame for the fly to *fly1.png* from the art pack:
 
 ![](./hero_sprite.png)
 
-## Setting up the flying animation
+#### Setting up the flying animation
 
 If you have problems following the steps, you should take a look at the [chapter in our beginner tutorial](https://www.makegameswith.us/tutorials/getting-started-with-spritebuilder/animating-spritebuilder/) that explains timeline animations in detail. The animation we are about to define will be 1 second long and then loop. So in the first step we need to set the timeline duration to 1 second:
 
@@ -116,7 +116,7 @@ Note that the *CCSprite* needs to be selected in the timeline in order to add a 
 
 Once again, if you had problems with one of these steps please check the beginner tutorial for detailed explanation.
 
-# Let the fly fall
+## Let the fly fall
 
 Because our game uses physics we need to use a *CCPhysicsNode*. Open *MainScene.ccb* and drag a *CCPhysicsNode* below the root node, set the size of the CCPhysicsNode to be a 100% of the parents size:
 
@@ -142,7 +142,7 @@ You are now again ready to publish your project and run the App from Xcode. You 
 
 Great! Now let's get to the scrolling part of our game!
 
-# Scroll the scene - move the fly
+## Scroll the scene - move the fly
 
 We are going to begin by moving the fly with a constant speed. First setup a code connection for the fly so that we can manipulate the velocity in code:
 
@@ -168,7 +168,7 @@ Once you added this code you can run your App. You should see the fly falling do
 
 You're right; as a next step we need to set up a camera to follow the fly.
 
-## Setting up a "camera"
+#### Setting up a "camera"
 
 Cocos2d does not have the concept of a camera (though *CCActionFollow* comes close to it). This means we will implement the camera mechanism on our own. We do this by moving the complete content of the game to the left (to the player this looks the same as if the camera is moving to the right - in the end all movement is relative).
 
@@ -198,7 +198,7 @@ Now you can run your game again.
 
 Yay, the scrolling works! However, when we scroll too far to the right the ground disappears and the fly drops into nirvana. The problem is that by moving the complete physics world to the left, we are also moving our ground to the left that is only wide enough to fill the width of one screen.
 
-## Loop the ground
+#### Loop the ground
 
 We will have to fix this by adding a second piece of ground and implement an endless scrolling of these two pieces. When a ground piece leaves the left edge we move it to the right edge of the screen to create a looping effect. Once again this will be easier to understand when we put it into practice.
 
@@ -250,7 +250,7 @@ In *didLoadFromCCB* we create an array to be able to loop through the ground pie
 
 If you run your game now, the ground will scroll endlessly!
 
-# Add controls and tune physics
+## Add controls and tune physics
 
 At the moment our fly drops to the floor (slowly) and there is nothing a player could do against it! In this section we are going to tune some physics values and add controls so that the player can stop the fly from falling down.
 
@@ -272,7 +272,7 @@ Whenever a touch occurs we create an impulse that lifts the fly. For now it is t
 
 Now it's time to run the game again and see how the fly can be controlled by touches.
 
-## Limiting the speed
+#### Limiting the speed
 
 As you maybe have realized while testing the implementation: when you touch the screen often in a short time period the impulses add up and the fly shoots out of the top edge of the screen. As in most physics games we will have to add some tweaking variables. For this game we want to limit the vertical upward velocity. We can do this by extending the *update* method.
 
@@ -284,7 +284,7 @@ Add these lines to limit the velocity:
 
 Clamping means changing a given value so that it stays within a specified range. This way we are limiting the upwards speed to 200. By using negative *MAXFLOAT* as bottom border, we are not limiting the falling speed. We don't need to set the x velocity because we are setting the position manually.
 
-## Make the fly rotate
+#### Make the fly rotate
 
 One of the nice details of Flappy Bird is the way the bird rotates. When the player does not touch the screen for a little while the bird turns towards the ground, touching the screen makes the bird turn upwards again. We are going to imitate this behaviour in Flappy Fly!
 
@@ -332,7 +332,7 @@ Now run your game again. The behaviour should be similar to this:
 
 By now our game looks pretty decent! There is just one very important thing missing: obstacles!
 
-# Adding obstacles
+## Adding obstacles
 
 Now we are getting to a very interesting part. We will be adding obstacles and implement a mechanism to randomly create more obstacles as we fly along the level.
 
@@ -376,7 +376,7 @@ You can test if you setup the obstacle correct by adding one to the *MainScene.c
 
 Once you have successfully tested that the obstacle looks correct, remove it from *MainScene.ccb,* as we will be adding obstacles from code.
 
-## Generate obstacles in code
+#### Generate obstacles in code
 
 Now we will put the obstacles we just created in our game. Open Xcode and add a member variable to *MainScene.m:*
 
@@ -421,7 +421,7 @@ You should see exactly three obstacles passing by, followed by - nothing.
 
 This will be our next task spawning and endless amount of obstacles!
 
-## Spawning new obstacles when old ones leave the screen
+#### Spawning new obstacles when old ones leave the screen
 
 We will now implement a mechanism that checks which obstacles moved off the screen and spawns new obstacles for these ones. Add these lines to your *update* method:
 
@@ -447,7 +447,7 @@ The basics of this code will remind you of the ground looping we implemented pre
 
 Now run your game. You should see an endless amount of scrolling obstacles! You are getting close to completing *Flappy Fly*!
 
-## Generate random obstacles
+#### Generate random obstacles
 
 The next challenge we are going to tackle is generating random obstacles. This means we will be varying the position of the gap between the two pipes. The first step is setting up a custom class for the obstacle. Call the class *Obstacle* and be sure to have the root node selected when you set it:
 
@@ -523,7 +523,7 @@ In the above code I have added a cast, so that we can treat the loaded *Obstacle
 
 If you run the game now you should see random obstacles occurring! Before we move on to the last major step - implementing collisions - we are going to fix a small issue with the drawing order.
 
-# Fixing the drawing order
+## Fixing the drawing order
 
 Because we add the pipes in code they are drawn in front of the ground. By default Cocos2d renders the elements in the reverse order of drawing. We are going to change the draw order manually, forcing the ground to be drawn above the pipes. Add this enum after the constants you have defined in *MainScene.m*:
 
@@ -550,7 +550,7 @@ Now you should run the App and see the pipes drawn behind the ground:
 
 ![](./flappy_fun.png)
 
-# The final steps: setting up collisons
+## The final steps: setting up collisons
 
 First of all: Congratulations for following along this far. Now we are going to set up collision handling so that we can add a portion of frustration to *Flappy Fly*.
 
@@ -611,7 +611,7 @@ The method above will be called whenever a object with type *hero* collides with
 
 Publish &amp; Run in Xcode. Now any time you collide with the ground or a pipe "Game Over" will be printed to the console.
 
-## Implement "Game over" situation
+#### Implement "Game over" situation
 
 Instead of only showing a message in the console we now want implement a game over situation:
 
@@ -701,7 +701,7 @@ You also need to update the *touchBegan* method to ensure that the user cannot "
 
 Now you can run your app again and you should see a complete game over sequence. Now there is literally one last point left: implementing points!
 
-# Implementing points
+## Implementing points
 
 Now that the player can die, lets implement the very last step and let players collect points.
 
